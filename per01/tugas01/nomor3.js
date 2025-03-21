@@ -8,15 +8,15 @@ document.getElementById("validasiForm").addEventListener("submit", function (e) 
     let pesanError = "";
 
     if (nama.length <= 3) {
-        pesanError = "Nama harus lebih dari 3 karakter \n";
+        pesanError += "Nama harus lebih dari 3 karakter \n";
     }
 
     if (!email.includes("@" && ".com")) {
-        pesanError = "Email harus valid\n";
+        pesanError += "Email harus valid\n";
     }
 
     if (password.length < 8) {
-        pesanError = "Password harus minimal 8 karakter \n";
+        pesanError += "Password harus minimal 8 karakter \n";
     }
 
     if (pesanError) {
