@@ -3,9 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tugas Prak Pemweb no 02</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 <body>
+    <div class="mt-4">
+        <h3 class="font-serif mb-5 mt-20 text-center italic text-3xl">Kalkulator Sederhana</h3>
+        <div class="flex w-1/2 gap-2 mb-3 mx-auto">
+            <input type="number" id="angka1" placeholder="Angka 1" class="text-center border p-2 rounded flex-1">
+            <input type="number" id="angka2" placeholder="Angka 2" class="text-center border p-2 rounded flex-1">
+        </div>
+        <div class="flex gap-2 justify-center mt-4">
+            <button id="btn-tambah" class="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">Tambah</button>
+            <button id="btn-kurang" class="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">Kurang</button>
+            <button id="btn-kali" class="bg-purple-500 text-white px-3 py-1 rounded hover:bg-purple-600">Kali</button>
+            <button id="btn-bagi" class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Bagi</button>
+            <button id="btn-pangkat" class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">Pangkat</button>
+            <button id="btn-akar" class="bg-pink-500 text-white px-3 py-1 rounded hover:bg-pink-600">Akar</button>
+            <button id="btn-modulus" class="bg-gray-500 text-white px-3 py-1 rounded hover:bg-gray-600">Modulus</button>
+        </div>
+        <div id="hasil-kalkulator" class="mt-5 font-semibold text-center"></div>
+    </div>
     
+    <script src="nomor2.js"></script>
 </body>
 </html>
