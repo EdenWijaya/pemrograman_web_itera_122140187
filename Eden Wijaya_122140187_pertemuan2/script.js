@@ -97,14 +97,22 @@ function createNoteCard(note, index) {
   div.className = "bg-white p-4 rounded shadow";
 
   div.innerHTML = `
-      <h3 class="text-lg font-bold">${note.title}</h3>
-      <p class="text-gray-700 mt-1">${note.content}</p>
-      <span class="text-sm text-blue-600">Kategori: ${note.category}</span>
-      <div class="mt-2 space-x-2">
-        <button onclick="editNote(${index})" class="text-sm text-yellow-600 hover:underline">Edit</button>
-        <button onclick="deleteNote(${index})" class="text-sm text-red-600 hover:underline">Hapus</button>
-      </div>
-    `;
+  <h3 class="text-lg font-bold mb-1">${note.title}</h3>
+  <p class="text-gray-700 mb-2">${note.content}</p>
+  <div class="mb-2">
+    <span class="inline-block bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded">
+      ${note.category}
+    </span>
+  </div>
+  <div class="mt-2 space-x-2">
+    <button onclick="editNote(${index})" class="text-sm text-yellow-600 hover:underline hover:text-yellow-700">
+      ✏️
+    </button>
+    <button onclick="deleteNote(${index})" class="text-sm text-red-600 hover:underline hover:text-red-700">
+      🗑️
+    </button>
+  </div>
+`;
 
   return div;
 }
