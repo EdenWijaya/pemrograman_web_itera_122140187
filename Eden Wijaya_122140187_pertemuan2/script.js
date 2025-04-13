@@ -4,9 +4,21 @@ const contentInput = document.getElementById("content");
 const categoryInput = document.getElementById("category");
 const notesList = document.getElementById("notesList");
 
+class Note {
+  constructor(title, content, category) {
+    this.id = Date.now();
+    this.title = title;
+    this.content = content;
+    this.category = category;
+  }
+
+  getSummary() {
+    return `${this.title} (${this.category})`;
+  }
+}
+
 let notes = [];
 
-// Simulasi ambil kategori (misal dari API nanti)
 async function fetchCategories() {
   return new Promise((resolve) => {
     setTimeout(() => {
@@ -15,7 +27,6 @@ async function fetchCategories() {
   });
 }
 
-// Isi dropdown filter kategori + event listener filter
 async function initCategoryFilterDropdown() {
   const categories = await fetchCategories();
   const select = document.getElementById("filter-category");
@@ -27,14 +38,12 @@ async function initCategoryFilterDropdown() {
     select.appendChild(option);
   });
 
-  // Listener dipasang sekali saja
   select.addEventListener("change", function () {
     const selectedCategory = this.value;
     renderFilteredNotes(selectedCategory);
   });
 }
 
-// Navigasi antar halaman
 function switchPage(pageId) {
   document.querySelectorAll(".page-section").forEach((section) => {
     section.classList.add("hidden");
@@ -42,20 +51,14 @@ function switchPage(pageId) {
   document.getElementById(pageId).classList.remove("hidden");
 
   if (pageId === "viewNotes") {
-    renderFilteredNotes(); // Tampilkan semua saat awal buka
+    renderFilteredNotes();
   }
 }
 
-// Tambah catatan
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  const note = {
-    id: Date.now(),
-    title: titleInput.value,
-    content: contentInput.value,
-    category: categoryInput.value,
-  };
+  const note = new Note(titleInput.value, contentInput.value, categoryInput.value);
 
   notes.push(note);
   saveToLocalStorage();
@@ -63,23 +66,19 @@ form.addEventListener("submit", (e) => {
   alert("Catatan berhasil ditambahkan!");
 });
 
-// Simpan ke localStorage
 function saveToLocalStorage() {
   localStorage.setItem("notes", JSON.stringify(notes));
 }
 
-// Ambil semua catatan dari localStorage
 function getNotesFromLocalStorage() {
   const storedNotes = localStorage.getItem("notes");
   return storedNotes ? JSON.parse(storedNotes) : [];
 }
 
-// Load catatan waktu awal buka
 function loadFromLocalStorage() {
   notes = getNotesFromLocalStorage();
 }
 
-// Render catatan berdasarkan filter kategori
 function renderFilteredNotes(category = "all") {
   const allNotes = getNotesFromLocalStorage();
   const filteredNotes = category === "all" ? allNotes : allNotes.filter((note) => note.category === category);
@@ -93,25 +92,23 @@ function renderFilteredNotes(category = "all") {
   });
 }
 
-// Buat elemen card catatan
 function createNoteCard(note, index) {
   const div = document.createElement("div");
   div.className = "bg-white p-4 rounded shadow";
 
   div.innerHTML = `
-    <h3 class="text-lg font-bold">${note.title}</h3>
-    <p class="text-gray-700 mt-1">${note.content}</p>
-    <span class="text-sm text-blue-600">Kategori: ${note.category}</span>
-    <div class="mt-2 space-x-2">
-      <button onclick="editNote(${index})" class="text-sm text-yellow-600 hover:underline">Edit</button>
-      <button onclick="deleteNote(${index})" class="text-sm text-red-600 hover:underline">Hapus</button>
-    </div>
-  `;
+      <h3 class="text-lg font-bold">${note.title}</h3>
+      <p class="text-gray-700 mt-1">${note.content}</p>
+      <span class="text-sm text-blue-600">Kategori: ${note.category}</span>
+      <div class="mt-2 space-x-2">
+        <button onclick="editNote(${index})" class="text-sm text-yellow-600 hover:underline">Edit</button>
+        <button onclick="deleteNote(${index})" class="text-sm text-red-600 hover:underline">Hapus</button>
+      </div>
+    `;
 
   return div;
 }
 
-// Hapus catatan
 function deleteNote(index) {
   if (confirm("Yakin ingin menghapus catatan ini?")) {
     notes.splice(index, 1);
@@ -120,19 +117,16 @@ function deleteNote(index) {
   }
 }
 
-// Edit catatan
 function editNote(index) {
   const note = notes[index];
   titleInput.value = note.title;
   contentInput.value = note.content;
   categoryInput.value = note.category;
 
-  // Hapus data lama & simpan ulang saat disubmit
   notes.splice(index, 1);
   saveToLocalStorage();
   switchPage("addNote");
 }
 
-// Init awal
 loadFromLocalStorage();
 initCategoryFilterDropdown();
