@@ -10,8 +10,8 @@ Ini merupakan aplikasi personal dashboard sederhana untuk mencatat dan mengelola
 - **Hapus Catatan**: Hapus catatan yang tidak dibutuhkan.
 - **Penyimpanan Otomatis**: Data disimpan menggunakan `localStorage`, tidak hilang saat halaman di-refresh.
 
-[](./Gambar/ss1.png)
-[](./Gambar/ss2.png)
+![Tampilan Aplikasi - Tambah Catatan](./Gambar/ss1.png)
+![Tampilan Aplikasi - Tambah Catatan](./Gambar/ss2.png)
 
 ---
 
