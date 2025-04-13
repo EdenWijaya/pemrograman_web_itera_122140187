@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prak Pemweb 02</title>
+    <script src="script.js" defer></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100 min-h-screen p-4 font-sans">
+    <div class="max-w-3xl mx-auto">
+      <h1 class="text-3xl font-bold mb-6 text-center">Dashboard Catatan</h1>
+
+      <!-- Form Tambah Catatan -->
+      <form id="noteForm" class="bg-white shadow-md rounded p-4 mb-6 space-y-4">
+        <input
+          type="text"
+          id="title"
+          placeholder="Judul catatan"
+          class="w-full p-2 border border-gray-300 rounded"
+          required
+        />
+        <textarea
+          id="content"
+          placeholder="Isi catatan..."
+          class="w-full p-2 border border-gray-300 rounded"
+          rows="4"
+          required
+        ></textarea>
+        <select id="category" class="w-full p-2 border border-gray-300 rounded" required>
+          <option value="">Pilih Kategori</option>
+          <option value="Kuliah">Kuliah</option>
+          <option value="Tugas">Tugas</option>
+          <option value="Pribadi">Pribadi</option>
+        </select>
+        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Tambah Catatan</button>
+      </form>
+
+      <!-- Daftar Catatan -->
+      <div id="notesList" class="space-y-4"></div>
+    </div>
+  </body>
+</html>
