@@ -15,7 +15,7 @@ Ini merupakan aplikasi personal dashboard sederhana untuk mencatat dan mengelola
 
 ---
 
-## 💻 Teknologi & Tools
+## Tools yg digunakan
 
 - HTML5 + JavaScript ES6+
 - Tailwind CSS
@@ -25,10 +25,10 @@ Ini merupakan aplikasi personal dashboard sederhana untuk mencatat dan mengelola
 
 ## Fitur ES6+ yang Diimplementasikan
 
-| Fitur ES6+                      |     | Implementasi                              |
-| ------------------------------- | --- | ----------------------------------------- |
-| `let` dan `const`               |     | Untuk deklarasi variabel                  |
-| Arrow Function                  |     | Pada `forEach`, event listener, dll.      |
-| Template Literals               |     | Untuk isi card catatan (`createNoteCard`) |
-| Fungsi Asinkron (`async/await`) |     | Pada `fetchCategories()`                  |
-| `Class`                         |     | Class `Note` untuk membuat objek catatan  |
+| Fitur ES6+                      | Implementasi                              |
+| ------------------------------- | ----------------------------------------- |
+| `let` dan `const`               | Untuk deklarasi variabel                  |
+| Arrow Function                  | Pada `forEach`, event listener, dll.      |
+| Template Literals               | Untuk isi card catatan (`createNoteCard`) |
+| Fungsi Asinkron (`async/await`) | Pada `fetchCategories()`                  |
+| `Class`                         | Class `Note` untuk membuat objek catatan  |
