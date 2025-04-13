@@ -3,41 +3,69 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Prak Pemweb 02</title>
+    <title>Personal Dashboard</title>
     <script src="script.js" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body class="bg-gray-100 min-h-screen p-4 font-sans">
-    <div class="max-w-3xl mx-auto">
-      <h1 class="text-3xl font-bold mb-6 text-center">Dashboard Catatan</h1>
+  <body class="bg-gray-100 min-h-screen font-sans">
+    <div class="flex">
+      <!-- Sidebar -->
+      <aside class="w-64 bg-white shadow-md h-screen p-4">
+        <img src="./Gambar/catatan.png" alt="" class="w-16 h-16 mb-4" />
+        <nav class="space-y-4">
+          <button
+            onclick="switchPage('addNote')"
+            class="w-full text-left px-4 py-2 bg-blue-100 rounded hover:bg-blue-200"
+          >
+            ➕ Tambah Catatan
+          </button>
+          <button
+            onclick="switchPage('viewNotes')"
+            class="w-full text-left px-4 py-2 bg-blue-100 rounded hover:bg-blue-200"
+          >
+            📋 Lihat Catatan
+          </button>
+        </nav>
+      </aside>
 
-      <!-- Form Tambah Catatan -->
-      <form id="noteForm" class="bg-white shadow-md rounded p-4 mb-6 space-y-4">
-        <input
-          type="text"
-          id="title"
-          placeholder="Judul catatan"
-          class="w-full p-2 border border-gray-300 rounded"
-          required
-        />
-        <textarea
-          id="content"
-          placeholder="Isi catatan..."
-          class="w-full p-2 border border-gray-300 rounded"
-          rows="4"
-          required
-        ></textarea>
-        <select id="category" class="w-full p-2 border border-gray-300 rounded" required>
-          <option value="">Pilih Kategori</option>
-          <option value="Kuliah">Kuliah</option>
-          <option value="Tugas">Tugas</option>
-          <option value="Pribadi">Pribadi</option>
-        </select>
-        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Tambah Catatan</button>
-      </form>
+      <!-- Content -->
+      <main class="flex-1 p-6">
+        <!-- Halaman Tambah Catatan -->
+        <section id="addNote" class="page-section">
+          <h2 class="text-2xl font-semibold mb-4">Tambah Catatan</h2>
+          <form id="noteForm" class="bg-white shadow-md rounded p-4 space-y-4">
+            <input
+              id="title"
+              type="text"
+              placeholder="Judul catatan"
+              class="w-full p-2 border border-gray-300 rounded"
+              required
+            />
+            <textarea
+              id="content"
+              placeholder="Isi catatan..."
+              class="w-full p-2 border border-gray-300 rounded"
+              rows="4"
+              required
+            ></textarea>
+            <select id="category" class="w-full p-2 border border-gray-300 rounded" required>
+              <option value="">Pilih Kategori</option>
+              <option value="Kuliah">Kuliah</option>
+              <option value="Tugas">Tugas</option>
+              <option value="Pribadi">Pribadi</option>
+            </select>
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+              Simpan Catatan
+            </button>
+          </form>
+        </section>
 
-      <!-- Daftar Catatan -->
-      <div id="notesList" class="space-y-4"></div>
+        <!-- Halaman Lihat Catatan -->
+        <section id="viewNotes" class="page-section hidden">
+          <h2 class="text-2xl font-semibold mb-4">Daftar Catatan</h2>
+          <div id="notesList" class="space-y-4"></div>
+        </section>
+      </main>
     </div>
   </body>
 </html>
