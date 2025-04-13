@@ -10,8 +10,8 @@ Ini merupakan aplikasi personal dashboard sederhana untuk mencatat dan mengelola
 - **Hapus Catatan**: Hapus catatan yang tidak dibutuhkan.
 - **Penyimpanan Otomatis**: Data disimpan menggunakan `localStorage`, tidak hilang saat halaman di-refresh.
 
-![Tampilan Aplikasi - Tambah Catatan](./Gambar/ss1.png)
-![Tampilan Aplikasi - Tambah Catatan](./Gambar/ss2.png)
+![](./Gambar/ss1.png)
+![](./Gambar/ss2.png)
 
 ---
 
@@ -20,3 +20,15 @@ Ini merupakan aplikasi personal dashboard sederhana untuk mencatat dan mengelola
 - HTML5 + JavaScript ES6+
 - Tailwind CSS
 - localStorage API (untuk penyimpanan)
+
+---
+
+## Fitur ES6+ yang Diimplementasikan
+
+| Fitur ES6+                      | Status | Implementasi                              |
+| ------------------------------- | ------ | ----------------------------------------- |
+| `let` dan `const`               | ✅     | Untuk deklarasi variabel                  |
+| Arrow Function                  | ✅     | Pada `forEach`, event listener, dll.      |
+| Template Literals               | ✅     | Untuk isi card catatan (`createNoteCard`) |
+| Fungsi Asinkron (`async/await`) | ✅     | Pada `fetchCategories()`                  |
+| `Class`                         | ✅     | Class `Note` untuk membuat objek catatan  |
