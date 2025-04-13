@@ -66,10 +66,12 @@ form.addEventListener("submit", (e) => {
   alert("Catatan berhasil ditambahkan!");
 });
 
+// save local storage
 function saveToLocalStorage() {
   localStorage.setItem("notes", JSON.stringify(notes));
 }
 
+// ambil data dari local storage
 function getNotesFromLocalStorage() {
   const storedNotes = localStorage.getItem("notes");
   return storedNotes ? JSON.parse(storedNotes) : [];
@@ -79,6 +81,7 @@ function loadFromLocalStorage() {
   notes = getNotesFromLocalStorage();
 }
 
+// render notes
 function renderFilteredNotes(category = "all") {
   const allNotes = getNotesFromLocalStorage();
   const filteredNotes = category === "all" ? allNotes : allNotes.filter((note) => note.category === category);
@@ -92,6 +95,7 @@ function renderFilteredNotes(category = "all") {
   });
 }
 
+// card catatan
 function createNoteCard(note, index) {
   const div = document.createElement("div");
   div.className = "bg-white p-4 rounded shadow";
@@ -117,6 +121,7 @@ function createNoteCard(note, index) {
   return div;
 }
 
+// hapus catatan
 function deleteNote(index) {
   if (confirm("Yakin ingin menghapus catatan ini?")) {
     notes.splice(index, 1);
@@ -125,12 +130,14 @@ function deleteNote(index) {
   }
 }
 
+// edit catatan
 function editNote(index) {
   const note = notes[index];
   titleInput.value = note.title;
   contentInput.value = note.content;
   categoryInput.value = note.category;
 
+  // update note
   notes.splice(index, 1);
   saveToLocalStorage();
   switchPage("addNote");
