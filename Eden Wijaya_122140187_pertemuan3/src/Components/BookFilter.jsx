@@ -14,7 +14,7 @@ const BookFilter = ({ onFilter }) => {
       <label className="mr-2 font-semibold">Filter:</label>
       <select value={filter} onChange={handleChange} className="border p-2 rounded">
         <option value="semua">Semua</option>
-        <option value="miliki">Miliki</option>
+        <option value="miliki">Dimiliki</option>
         <option value="baca">Sedang Dibaca</option>
         <option value="beli">Ingin Dibeli</option>
       </select>

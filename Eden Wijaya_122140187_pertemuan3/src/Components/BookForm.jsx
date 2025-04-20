@@ -9,6 +9,8 @@ const BookForm = ({ initialData = null, onSubmitDone }) => {
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
   const [status, setStatus] = useState("miliki");
+  const [image, setImage] = useState(null);
+  const [preview, setPreview] = useState(null);
   const [error, setError] = useState("");
 
   useEffect(() => {
@@ -16,8 +18,22 @@ const BookForm = ({ initialData = null, onSubmitDone }) => {
       setTitle(initialData.title);
       setAuthor(initialData.author);
       setStatus(initialData.status);
+      setImage(initialData.image || null);
+      setPreview(initialData.image || null);
     }
   }, [initialData]);
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImage(reader.result); // base64
+        setPreview(reader.result);
+      };
+      reader.readAsDataURL(file); // ini yang mengubah ke base64
+    }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -32,6 +48,7 @@ const BookForm = ({ initialData = null, onSubmitDone }) => {
       title,
       author,
       status,
+      image,
     };
 
     if (initialData) {
@@ -40,10 +57,14 @@ const BookForm = ({ initialData = null, onSubmitDone }) => {
       addBook(bookData);
     }
 
+    // Reset form
     setTitle("");
     setAuthor("");
     setStatus("miliki");
+    setImage(null);
+    setPreview(null);
     setError("");
+
     if (onSubmitDone) onSubmitDone();
   };
 
@@ -70,12 +91,18 @@ const BookForm = ({ initialData = null, onSubmitDone }) => {
       </div>
 
       <div>
-        <label className="block mb-1 font-semibold">Status</label>
+        <label className="block mb-1 font-semibold">Catatan</label>
         <select className="w-full border p-2 rounded" value={status} onChange={(e) => setStatus(e.target.value)}>
-          <option value="miliki">Miliki</option>
+          <option value="miliki">Dimiliki</option>
           <option value="baca">Sedang Dibaca</option>
           <option value="beli">Ingin Dibeli</option>
         </select>
+      </div>
+
+      <div>
+        <label className="block mb-1 font-semibold">Sampul Buku</label>
+        <input type="file" accept="image/*" className="w-full" onChange={handleImageChange} />
+        {preview && <img src={preview} alt="Preview" className="mt-2 w-24 h-32 object-cover rounded" />}
       </div>
 
       {error && <p className="text-red-500 text-sm">{error}</p>}
