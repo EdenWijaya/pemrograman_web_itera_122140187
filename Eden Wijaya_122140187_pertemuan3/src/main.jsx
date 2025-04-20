@@ -1,10 +1,19 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BookProvider } from "./Context/BookContext";
+import Home from "./Pages/Home";
+import Stats from "./Pages/Stats";
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
+function Main() {
+  return (
+    <BookProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/Stats" element={<Stats />} />
+        </Routes>
+      </BrowserRouter>
+    </BookProvider>
+  );
+}
+
+export default Main;
