@@ -1,23 +1,23 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { BookProvider } from "./Context/BookContext";
-import Home from "./Pages/Home";
-// import Stats from "./Pages/Stats";
-import "./index.css";
 import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./Pages/Home";
+import List from "./Pages/List";
+import Layout from "./Pages/Layout";
+import { BookProvider } from "./Context/BookContext";
+import "./index.css";
 
-function Main() {
-  return (
-    <React.StrictMode>
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <BookProvider>
       <BrowserRouter>
-        <BookProvider>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            {/* <Route path="/stats" element={<Stats />} /> */}
-          </Routes>
-        </BookProvider>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="/list" element={<List />} />
+          </Route>
+        </Routes>
       </BrowserRouter>
-    </React.StrictMode>
-  );
-}
-
-export default Main;
+    </BookProvider>
+  </React.StrictMode>
+);
