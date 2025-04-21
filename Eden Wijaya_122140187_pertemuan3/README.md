@@ -51,3 +51,7 @@ http://localhost:5173
 - [Tailwind CSS](https://tailwindcss.com/)
 - [uuid](https://www.npmjs.com/package/uuid)
 - [PropTypes](https://reactjs.org/docs/typechecking-with-proptypes.html)
+
+## screenshoot testing
+
+![alt text](<Cuplikan layar 2025-04-21 152612.png>)
