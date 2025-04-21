@@ -1,12 +1,38 @@
-# React + Vite
+# Denz Catatan
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Ini merupakan aplikasi personal dashboard sederhana untuk mencatat dan mengelola catatan harian, seperti catatan untuk kuliah, pekerjaan, atau pribadi. Aplikasi ini diperuntukan untuk mahasiswa yang ingin mencatat hal penting seperti jadwal kuliah, to-do list, atau catatan pribadi.
 
-Currently, two official plugins are available:
+## Fitur Aplikasi
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Tambah Catatan**: Isi judul, isi, dan kategori catatan (Kuliah, Kerja, Pribadi).
+- **Lihat dan Filter Catatan**: Lihat semua catatan dan filter berdasarkan kategori.
+- **Edit Catatan**: Sunting catatan yang sudah disimpan.
+- **Hapus Catatan**: Hapus catatan yang tidak dibutuhkan.
+- **Penyimpanan Otomatis**: Data disimpan menggunakan `localStorage`, tidak hilang saat halaman di-refresh.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Screenshot
+
+![](./Gambar/ss1.png)
+![](./Gambar/ss2.png)
+
+---
+
+## Tools yg digunakan
+
+- HTML5 + JavaScript ES6+
+- Tailwind CSS
+- localStorage API (untuk penyimpanan)
+
+---
+
+## Fitur ES6+ yang Diimplementasikan
+
+| Fitur ES6+                      | Implementasi                              |
+| ------------------------------- | ----------------------------------------- |
+| `let` dan `const`               | Untuk deklarasi variabel                  |
+| Arrow Function                  | Pada `forEach`, event listener, dll.      |
+| Template Literals               | Untuk isi card catatan (`createNoteCard`) |
+| Fungsi Asinkron (`async/await`) | Pada `fetchCategories()`                  |
+| `Class`                         | Class `Note` untuk membuat objek catatan  |
