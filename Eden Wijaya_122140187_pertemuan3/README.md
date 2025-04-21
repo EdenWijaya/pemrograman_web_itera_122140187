@@ -2,23 +2,48 @@
 
 Ini merupakan aplikasi manajemen buku pribadi sederhana yang berguna untuk mencatat buku-buku yang dimiliki, sedang dibaca, atau ingin dibeli. Aplikasi ini diperuntukan untuk pengguna yang ingin mengatur daftar buku buku pribadi nya.
 
-## 📦 Instalasi
+## Instalasi
 
-1. Clone repositori ini:
+1. Clone repositori:
 
 ```bash
 git clone https://github.com/EdenWijaya/pemrograman_web_itera_122140187.git
 ```
 
-## ✨ Fitur
+2. Install dependensi :
 
-- Tambah, edit, hapus
-- Simpan status buku dan berdasarkan filter (Dimiliki, Sedang Dibaca, Ingin Dibeli)
-- Upload gambar sampul buku
-- Validasi input
-- menggunakan Tailwind CSS
+```bash
+npm install
+```
 
-## 🛠️ Teknologi
+3. Jalankan aplikasi :
+
+```bash
+npm run dev
+```
+
+4. Buka browser dan akses :
+
+```bash
+http://localhost:5173
+```
+
+## Screenshoot
+
+![alt text](image.png)
+
+![alt text](image-1.png)
+
+## Fitur React yg digunakan
+
+| Fitur ES6+  | Implementasi                                                          |
+| ----------- | --------------------------------------------------------------------- |
+| UseState    | Mengelola state lokal seperti title, author, status, dan image        |
+| useEffect   | Mengisi form dengan data awal ketika melakukan edit buku              |
+| Context API | Untuk menyimpan dan membagikan data buku ke seluruh komponen aplikasi |
+| PropTypes   | Melakukan type-checking pada properti (props) di komponen BookForm    |
+
+## Teknologi
 
 - [React](https://reactjs.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
