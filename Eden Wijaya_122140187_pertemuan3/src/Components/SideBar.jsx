@@ -17,7 +17,9 @@ const Sidebar = () => {
     <aside className="w-60 bg-white border-r h-screen p-4 shadow">
       <h2 className="text-xl font-bold mb-6 flex items-center space-x-2">
         <FaBook />
-        <span>Denz Buku</span>
+        <span>
+          Denz<span className="text-blue-800">Buku</span>
+        </span>
       </h2>
       <nav className="space-y-2">
         {navItem("/", "Tambah Buku")}
