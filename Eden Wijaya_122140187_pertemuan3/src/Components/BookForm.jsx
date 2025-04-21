@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { useBookContext } from "../Context/BookContext";
 import { v4 as uuidv4 } from "uuid";
-import { BookOpenIcon } from "@heroicons/react/24/solid"; // Pakai heroicons kalau tersedia
+import { BookOpenIcon } from "@heroicons/react/24/solid";
 
 const BookForm = ({ initialData = null, onSubmitDone }) => {
   const { addBook, updateBook } = useBookContext();
@@ -99,7 +99,7 @@ const BookForm = ({ initialData = null, onSubmitDone }) => {
         <select
           className="w-full border border-gray-300 p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           value={status}
-          onChange={(e) => setStatus(e.target.value)}
+          onChange={(e) => setStatus(e.target.valu)}
         >
           <option value="miliki">Dimiliki</option>
           <option value="baca">Sedang Dibaca</option>
@@ -132,8 +132,15 @@ const BookForm = ({ initialData = null, onSubmitDone }) => {
   );
 };
 
+//penambahan PropTypes
 BookForm.propTypes = {
-  initialData: PropTypes.object,
+  initialData: PropTypes.shape({
+    id: PropTypes.string,
+    title: PropTypes.string,
+    author: PropTypes.string,
+    status: PropTypes.string,
+    image: PropTypes.string,
+  }),
   onSubmitDone: PropTypes.func,
 };
 
