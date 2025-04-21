@@ -1,38 +1,26 @@
-# Denz Catatan
+# Denz Buku
 
-Ini merupakan aplikasi personal dashboard sederhana untuk mencatat dan mengelola catatan harian, seperti catatan untuk kuliah, pekerjaan, atau pribadi. Aplikasi ini diperuntukan untuk mahasiswa yang ingin mencatat hal penting seperti jadwal kuliah, to-do list, atau catatan pribadi.
+Ini merupakan aplikasi manajemen buku pribadi sederhana yang berguna untuk mencatat buku-buku yang dimiliki, sedang dibaca, atau ingin dibeli. Aplikasi ini diperuntukan untuk pengguna yang ingin mengatur daftar buku buku pribadi nya.
 
-## Fitur Aplikasi
+## 📦 Instalasi
 
-- **Tambah Catatan**: Isi judul, isi, dan kategori catatan (Kuliah, Kerja, Pribadi).
-- **Lihat dan Filter Catatan**: Lihat semua catatan dan filter berdasarkan kategori.
-- **Edit Catatan**: Sunting catatan yang sudah disimpan.
-- **Hapus Catatan**: Hapus catatan yang tidak dibutuhkan.
-- **Penyimpanan Otomatis**: Data disimpan menggunakan `localStorage`, tidak hilang saat halaman di-refresh.
+1. Clone repositori ini:
 
----
+```bash
+git clone https://github.com/EdenWijaya/pemrograman_web_itera_122140187.git
+```
 
-## Screenshot
+## ✨ Fitur
 
-![](./Gambar/ss1.png)
-![](./Gambar/ss2.png)
+- Tambah, edit, hapus
+- Simpan status buku dan berdasarkan filter (Dimiliki, Sedang Dibaca, Ingin Dibeli)
+- Upload gambar sampul buku
+- Validasi input
+- menggunakan Tailwind CSS
 
----
+## 🛠️ Teknologi
 
-## Tools yg digunakan
-
-- HTML5 + JavaScript ES6+
-- Tailwind CSS
-- localStorage API (untuk penyimpanan)
-
----
-
-## Fitur ES6+ yang Diimplementasikan
-
-| Fitur ES6+                      | Implementasi                              |
-| ------------------------------- | ----------------------------------------- |
-| `let` dan `const`               | Untuk deklarasi variabel                  |
-| Arrow Function                  | Pada `forEach`, event listener, dll.      |
-| Template Literals               | Untuk isi card catatan (`createNoteCard`) |
-| Fungsi Asinkron (`async/await`) | Pada `fetchCategories()`                  |
-| `Class`                         | Class `Note` untuk membuat objek catatan  |
+- [React](https://reactjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [uuid](https://www.npmjs.com/package/uuid)
+- [PropTypes](https://reactjs.org/docs/typechecking-with-proptypes.html)
