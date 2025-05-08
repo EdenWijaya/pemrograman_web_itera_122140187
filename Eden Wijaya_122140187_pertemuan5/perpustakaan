@@ -1,0 +1,14 @@
+[
+    {
+        "type": "Book",
+        "item_id": 1,
+        "title": "Dilan 90",
+        "author": "Agung"
+    },
+    {
+        "type": "Magazine",
+        "item_id": 2,
+        "title": "Mawang 25",
+        "tanggal": "April 2025"
+    }
+]
