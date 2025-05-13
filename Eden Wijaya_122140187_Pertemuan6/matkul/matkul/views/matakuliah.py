@@ -23,7 +23,7 @@ def matkul_list (request):
     # Kembalikan data dalam format JSON
     return {'matkul': [m.to_dict() for m in matkul]}
 
-@view_config(route_name='matkul_tambah', request_method='POST', renderer='json')
+@view_config(route_name='matkul_add', request_method='POST', renderer='json')
 def matkul_tambah(request):
     """ View untuk menambah data matakuliah """
     try:
@@ -52,7 +52,7 @@ def matkul_tambah(request):
     except Exception as e:
         return HTTPBadRequest(json_body={'error': str(e)})
 
-@view_config(route_name='matkul_edit',request_method='PUT', renderer='json')
+@view_config(route_name='matkul_update',request_method='PUT', renderer='json')
 def matkul_edit(request):
     """ View untuk mengedit data matakuliah """
     dbsession = request.dbsession
@@ -84,7 +84,7 @@ def matkul_edit(request):
         return HTTPBadRequest(json_body={'error': str(e)})
 
 
-# @view_config(route_name='matakuliah_update',request_method='DELETE', renderer='json')
+@view_config(route_name='matkul_delete',request_method='DELETE', renderer='json')
 def matkul_hapus(request):
     """View untuk menghapus data matakuliah"""
     dbsession = request.dbsession
