@@ -1,0 +1,3 @@
+[run]
+source = matkul
+omit = matkul/test*
